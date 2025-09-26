@@ -66,23 +66,51 @@ f lr(( limits(union.big)_(i in N) A_i), size: #50%) = limits(union.big)_(i in N)
 因为可以把右边拆出来，每一个$f(A_i)$ 都被 $f lr(( limits(union.big)_(i in N) A_i), size: #50%)$ 包含，所以它们的并，肯定也被包含
 那么反过来呢？
 
-$A union.big B = A union.big (A \\ B)$
-不妨令 $C = A \\ B$
-同理 $ f(A) union.big f(B) = f(A) union.big ((f(A) \\ f(B) )) $
-不妨令 $f(D) = f(A) \\ f(B)$
-由
+//QUES: 这就是我不懂的地方了，为什么是存在y
+存在$y in limits(union.big)_(i in N) f(A_i)$
+一定能找到一个 $x$ 使得 $x in limits(union.big)_(i in N) A_i$
+当 $x in A_i$ 时，对应的 $y in f(A_i)$ 而 $f(A_i) in limits(union.big)_(i in N) f(A_i)$
 
-
+但是这个交集的结论转成交集就不一定成立了
 对任意的$A,B subset X, 有 f(A inter.big B)＝f(A) inter.big f(B)$
-这个成立吗？这个就不成立了。
 可以让左边交为空，而右边有交集。只要这个函数不是单射就好了
 
+好，现在继续看思考题第4 题。老师在第４题前讲这些内容就是为了第４题做铺垫的
+这里由$i -> i i$ 其实条件过强了。其实只要满足f 是单射就可以证明了。
 
-只要单射，不要求满射
+首先，我们可以得到的一个结论就是
+$f(A inter.big B) subset f(A) inter.big f(B)$
+这个是无论是否单射都能成立的。只要是个映射，都能成立
+我先把这个的结论证明一下。
+let $ y in f(A inter.big B) $ this means there exists an $x in A inter B$ such that $ y=f(x) $
+since $x in A$, we know $y = f(x) in f(A)$
+since $x in B$, we know $y = f(x) in f(B)$
+Because $y$ is in both $f(A)$ and $f(B)$, we have $ y in f(A) inter f(B) $
+Therefore, $f(A inter B) subset f(A) inter f(B)$ is always true \
+其实就是说，不管从左边取哪一个元素，那个元素一定可以在右边找到。在windows上写中文太痛苦了。我以后会尽量用英文和符号来表达。除非由大段的文字要写
+由此$i -> i i$ 就被证明了
+$i i i$ 这里可以直接使用$i i$ 的结论 \
+Of course, you can prove by contradiction. If the right side is not $diameter$
+When you say "y in f(A) inter f(B) ", this still means there's an $x_1 in A$ and an $x_2 in B$  with $f(x_1) = y and f(x_2) = y$ \
+Because the function is injective, we know that $x_1$ and $x_2$ must be the same elemen. \
+Therefore, the single pre-image $x$ must belong to both $A$ and $B$, which means $x in A inter B$.
 
+这个$i v$ 其实更加好证明了 \
+$B \\ A = (B \\ A) inter X$ \
+$f(B) \\ f(A) = (f(B) \\ f(A)) inter Y$ \
+直接就可以套用$i i$ 中的式子
+这个从$i v -> i$ 其实也是可以直接反证法，如果不是单射，这个等式就不成立了。
+
+1.14 幂集
+//TODO: 这个还有别的方法吗？
+#let scr(it) = text(
+  features: ("ss01",),
+  box($cal(it)$),
+)
+$scr(P)$
 
 1.15
-对等关系
+对等关系  
 
 $A ~ B =>? A union.big C ~ B union.big C$
 
@@ -122,12 +150,3 @@ md 这个论文在第93卷，不在第78卷书上的标记是有误的
 
 13页的这个 V.Volterra 做出的可微函数是哪一个
 同一元这个我也不理解
-
-
-
-
-
-
-
-
-
