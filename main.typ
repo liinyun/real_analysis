@@ -1,3 +1,4 @@
+$ A union B = C $
 p13
 思考题
 1. 设 $f: bold(RR)-> bold(RR), 记 f_1(x)=f(x),f_n (x)=f(f_(n-1)(x)) (n=2,3,dot.op dot.op dot.op). 若 存 在 n_0 ,使 得 f_(n_0)(x)=x ,则 f$ 是$bold(RR) 到 f(bold(RR))$ 上的一一映射
@@ -72,17 +73,17 @@ f lr(( limits(union.big)_(i in N) A_i), size: #50%) = limits(union.big)_(i in N)
 当 $x in A_i$ 时，对应的 $y in f(A_i)$ 而 $f(A_i) in limits(union.big)_(i in N) f(A_i)$
 
 但是这个交集的结论转成交集就不一定成立了
-对任意的$A,B subset X, 有 f(A inter.big B)＝f(A) inter.big f(B)$
+对任意的$A,B subset X, 有 f(A inter B)＝f(A) inter f(B)$
 可以让左边交为空，而右边有交集。只要这个函数不是单射就好了
 
 好，现在继续看思考题第4 题。老师在第４题前讲这些内容就是为了第４题做铺垫的
 这里由$i -> i i$ 其实条件过强了。其实只要满足f 是单射就可以证明了。
 
 首先，我们可以得到的一个结论就是
-$f(A inter.big B) subset f(A) inter.big f(B)$
+$f(A inter B) subset f(A) inter f(B)$
 这个是无论是否单射都能成立的。只要是个映射，都能成立
 我先把这个的结论证明一下。
-let $ y in f(A inter.big B) $ this means there exists an $x in A inter B$ such that $ y=f(x) $
+let $ y in f(A inter B) $ this means there exists an $x in A inter B$ such that $ y=f(x) $
 since $x in A$, we know $y = f(x) in f(A)$
 since $x in B$, we know $y = f(x) in f(B)$
 Because $y$ is in both $f(A)$ and $f(B)$, we have $ y in f(A) inter f(B) $
@@ -102,34 +103,30 @@ $f(B) \\ f(A) = (f(B) \\ f(A)) inter Y$ \
 这个从$i v -> i$ 其实也是可以直接反证法，如果不是单射，这个等式就不成立了。
 
 1.14 幂集
-//TODO: 这个还有别的方法吗？
-#let scr(it) = text(
-  features: ("ss01",),
-  box($cal(it)$),
-)
+#let scr(it) = text(features: ("ss01",), box($cal(it)$))
 $scr(P)$
 
 1.15
-对等关系  
+对等关系
 
-$A ~ B =>? A union.big C ~ B union.big C$
+$A ~ B =>? A union C ~ B union C$
 
-only if $C inter A = diameter and C inter B = diameter$
+only if $C inter A = diameter, C inter B = diameter$
 
-$A ~ B =>? A inter.big C tilde.op B inter.big C$
+$A ~ B =>? A inter C tilde.op B inter C$
 
 p17
-3. $若 A subset B 且 A tilde.op ( A union.big C )，试 证 明 B tilde.op (B union.big C)．$
+3. $若 A subset B 且 A tilde.op ( A union C )，试 证 明 B tilde.op (B union C)．$
 
-$B union.big C = B union.big (C backslash B)$
+$B union C = B union (C backslash B)$
 
-$B = A union.big (B backslash A)$
+$B = A union (B backslash A)$
 
-$A union.big C = A union.big (A backslash C)$
+$A union C = A union (A backslash C)$
 
-$therefore B union.big C = A union.big (B backslash A) union.big C backslash B$
+$therefore B union C = A union (B backslash A) union C backslash B$
 
-$because B union.big C = (B backslash A) union.big A union.big C backslash B$
+$because B union C = (B backslash A) union A union C backslash B$
 
 $because C backslash B$
 
