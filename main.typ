@@ -110,7 +110,14 @@ $scr(P)$
 如果$A subset B$ 那么 $f(A) subset f(B)$ 难道不是一定成立的吗？直接把 B看成 A 并上余集 不就好了
 直接就是 $A union A^c = B$ and $f(A) subset (f(A) union f(A^c) )$
 感觉这个条件给了和没一样
+// QUES:
+这个S 我直观上知道是对的，这个东西会需要专门说明是对的吗？
+这个证明看懂了.我之只能说值得多看几遍
 
+思考题：
+5.
+第一个单射直接用x1 x2 让他们对应的y相同，那么g(y) 唯一，所以x1 = x2
+这个满射也很容易证明。在X中找一个点，不在g 的值域上，使得映射不成立就好了
 
 
 1.15
@@ -121,6 +128,14 @@ $A ~ B =>? A union C ~ B union C$
 only if $C inter A = diameter, C inter B = diameter$
 
 $A ~ B =>? A inter C tilde.op B inter C$
+
+
+p15
+引理1.4
+
+定理1.5 可以直接分解,不使用 Cantor-Bernstein 来证明
+
+
 
 p17
 3. $若 A subset B 且 A tilde.op ( A union C )，试 证 明 B tilde.op (B union C)．$
@@ -137,14 +152,25 @@ $because B union C = (B backslash A) union A union C backslash B$
 
 $because C backslash B$
 
-
-
-
-可数和可列是同一件事
+关于集合大小的讨论，看老师视频
 
 
 
 
+例10 还是不会证明
+
+定理1.10 的证明，我并不满意,这只能说明，他这种排法不行，没能证明其他的排法不行
+1.12 的证明我不是很能理解，先记下来吧
+
+
+
+
+
+
+可数和可列看书本p20，例10上面那句话
+
+
+// 这个是前面的序的部分，不是正式的页码
 书本 p11
 他这里例一，为什么有这个结论
 // TODO: 为什么　要要使用函数列的一致收敛来保证极限运算和积分运算的次序可以交换
