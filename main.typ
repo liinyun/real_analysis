@@ -106,6 +106,13 @@ $f(B) \\ f(A) = (f(B) \\ f(A)) inter Y$ \
 #let scr(it) = text(features: ("ss01",), box($cal(it)$))
 $scr(P)$
 
+这个例一有点抽象
+如果$A subset B$ 那么 $f(A) subset f(B)$ 难道不是一定成立的吗？直接把 B看成 A 并上余集 不就好了
+直接就是 $A union A^c = B$ and $f(A) subset (f(A) union f(A^c) )$
+感觉这个条件给了和没一样
+
+
+
 1.15
 对等关系
 
