@@ -1,3 +1,4 @@
+#set text(font: "Source Han Serif SC")
 $ A union B = C $
 p13
 思考题
@@ -110,6 +111,7 @@ $scr(P)$
 如果$A subset B$ 那么 $f(A) subset f(B)$ 难道不是一定成立的吗？直接把 B看成 A 并上余集 不就好了
 直接就是 $A union A^c = B$ and $f(A) subset (f(A) union f(A^c) )$
 感觉这个条件给了和没一样
+但是我问了ai 说是集合的映射和函数的映射是不一样的，在幂集上是从集合到集合的映射。
 // QUES:
 这个S 我直观上知道是对的，这个东西会需要专门说明是对的吗？
 这个证明看懂了.我之只能说值得多看几遍
@@ -123,6 +125,8 @@ $scr(P)$
 1.15
 对等关系
 
+
+
 $A ~ B =>? A union C ~ B union C$
 
 only if $C inter A = diameter, C inter B = diameter$
@@ -131,9 +135,17 @@ $A ~ B =>? A inter C tilde.op B inter C$
 
 
 p15
-引理1.4
+引理1.4 若有
+可以直接分解,不使用 Cantor-Bernstein 来证明
+老师的方法，我等下看视频再自己理解一下，我现在用不动点先证明一遍
+因为题目是存在，所以我们的目标就是找到这么一个函数。
+这个题目条件满足Knaster–Tarski 定理，所以可以找到那么一个函数，使得 \
+$f(S) = X \\ g(Y \\ f(S))$
 
-定理1.5 可以直接分解,不使用 Cantor-Bernstein 来证明
+
+// 定理1.5 #strong("(Cantor-Bernstein 定理)") 若集合$X$与$Y$ 的某个真自己对等，$Y$与 $X$ 的某个真子集对等，则$X~Y$
+定理1.5 *(Cantor-Bernstein定理)*  若集合$X$与$Y$ 的某个真自己对等，$Y$与 $X$ 的某个真子集对等，则$X~Y$
+
 
 
 
@@ -153,6 +165,15 @@ $because B union C = (B backslash A) union A union C backslash B$
 $because C backslash B$
 
 关于集合大小的讨论，看老师视频
+
+引入基数是为了在无限的情况下两个集合比大小
+在集合中的元素有限的情况下，两个集合 A 与 B 的关系，我们总是认为
+$A > B$
+$A = B$
+$A < B$
+这三件事情是一定发生的。那是当然了，毕竟数量可以直接数出来
+但是到了无限的情况下，情况就不一样了
+这三件事情中的某一件并不会一定发生的
 
 
 
