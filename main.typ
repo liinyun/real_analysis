@@ -1,5 +1,26 @@
+// this if for Chinese bold font, without which, Chinese character won't bold
 #set text(font: "Source Han Serif SC")
-$ A union B = C $
+我这里内容的顺序是老师上课的顺序，不是书本的顺序。所以页码标记至关重要
+
+直积在书本p11页有讲
+
+定理1.3 就单纯想说明上极限只要求有无穷项，但是下极限却要求从某一项以后的所有项都要满足
+p11例8 老师有讲，但是我认为没有比较记录。因为他说的和书本没什么区别，只是更加详细了。我不是高中生了，所以我不会记录这段内容
+
+
+引入基数是为了在无限的情况下两个集合比大小
+人的常识总是认为
+$A > B$
+$A = B$
+$A < B$
+这三件事情有一件是一定发生的。那是当然了，毕竟数量可以直接数出来
+但是这三件事情中的一件要一定发生。需要满足 axiom of choice 和 well-ordering theorem
+
+$overline(overline(A)) = overline(overline(B)) <=> 存 在 A 到 B 的 一 一 映 射$
+
+
+
+
 p13
 思考题
 1. 设 $f: bold(RR)-> bold(RR), 记 f_1(x)=f(x),f_n (x)=f(f_(n-1)(x)) (n=2,3,dot.op dot.op dot.op). 若 存 在 n_0 ,使 得 f_(n_0)(x)=x ,则 f$ 是$bold(RR) 到 f(bold(RR))$ 上的一一映射
@@ -75,7 +96,8 @@ f lr(( limits(union.big)_(i in N) A_i), size: #50%) = limits(union.big)_(i in N)
 
 但是这个交集的结论转成交集就不一定成立了
 对任意的$A,B subset X, 有 f(A inter B)＝f(A) inter f(B)$
-可以让左边交为空，而右边有交集。只要这个函数不是单射就好了
+可以让左边交为空，而右边有交集。
+而，如果想要这个等式可以成立。只要满足f 是单射就行了，这就是第4题的$i i$ 想告诉我们的
 
 好，现在继续看思考题第4 题。老师在第４题前讲这些内容就是为了第４题做铺垫的
 这里由$i -> i i$ 其实条件过强了。其实只要满足f 是单射就可以证明了。
@@ -90,18 +112,49 @@ since $x in B$, we know $y = f(x) in f(B)$
 Because $y$ is in both $f(A)$ and $f(B)$, we have $ y in f(A) inter f(B) $
 Therefore, $f(A inter B) subset f(A) inter f(B)$ is always true \
 其实就是说，不管从左边取哪一个元素，那个元素一定可以在右边找到。在windows上写中文太痛苦了。我以后会尽量用英文和符号来表达。除非由大段的文字要写
+好，要说明两边相等，我们还需要证明右边是左边的子集。
+老师的说法不好。不如我下面说的$i i i$ 的反证法清晰。直接看我$i i i$ 中用反证法说明的。如果单射，那么一定是从两个集合中取到相同的数，而这个相同的数的集合就是A与 B 的交集
 由此$i -> i i$ 就被证明了
 $i i i$ 这里可以直接使用$i i$ 的结论 \
-Of course, you can prove by contradiction. If the right side is not $diameter$
-When you say "y in f(A) inter f(B) ", this still means there's an $x_1 in A$ and an $x_2 in B$  with $f(x_1) = y and f(x_2) = y$ \
-Because the function is injective, we know that $x_1$ and $x_2$ must be the same elemen. \
+Of course, you can prove by contradiction. If the right side is not $diameter$ \
+When you say $y in f(A) inter f(B)$, this still means there's an $a in A$ and an $b in B$  with $f(a) = y and f(b) = y$ \
+Because the function is injective, we know that $a$ and $b$ must be the same elemen. \
 Therefore, the single pre-image $x$ must belong to both $A$ and $B$, which means $x in A inter B$.
 
 这个$i v$ 其实更加好证明了 \
 $B \\ A = (B \\ A) inter X$ \
 $f(B) \\ f(A) = (f(B) \\ f(A)) inter Y$ \
 直接就可以套用$i i$ 中的式子
-这个从$i v -> i$ 其实也是可以直接反证法，如果不是单射，这个等式就不成立了。
+这个从$i v -> i$ 其实也是可以直接反证法，如果不是单射，这个等式就不成立了。\
+最后可以总结一下。一般这种互相成立的都是$i -> i i -> i i i -> i v -> i$ 这样证明一圈下来，不用两两互相证明。因为效果是一样的。
+满射其实在这里面一点用都没有
+
+
+定理1.5 *(Cantor-Bernstein定理)*  若集合$X$与$Y$ 的某个真自己对等，$Y$与 $X$ 的某个真子集对等，则$X~Y$\
+这个定理说明了
+$overline(overline(X)) <= overline(overline(Y))$\
+$overline(overline(X)) >= overline(overline(Y))$\
+$overline(overline(X)) = overline(overline(Y))$ \
+这三个等式，一定会有一个发生
+这里一个是有势，一个是这里用的是 $<= 与 >=$ \
+如果这里使用的是 $< 与 >$ 就不行
+这个定理说的就是
+$overline(overline(X)) < overline(overline(Y))$\
+$overline(overline(X)) > overline(overline(Y))$\
+这两件事情是一定不可能同时发生的
+这个和这两件事情一定有一件会发生是两回事
+
+如果\
+$overline(overline(X)) <= overline(overline(Y))$\
+$overline(overline(X)) >= overline(overline(Y))$\
+这两件事情同时发生了，那么说明 \
+$overline(overline(X)) = overline(overline(Y))$ \
+
+
+
+
+
+
 
 1.14 幂集
 #let scr(it) = text(features: ("ss01",), box($cal(it)$))
@@ -143,9 +196,6 @@ p15
 $f(S) = X \\ g(Y \\ f(S))$
 
 
-// 定理1.5 #strong("(Cantor-Bernstein 定理)") 若集合$X$与$Y$ 的某个真自己对等，$Y$与 $X$ 的某个真子集对等，则$X~Y$
-定理1.5 *(Cantor-Bernstein定理)*  若集合$X$与$Y$ 的某个真自己对等，$Y$与 $X$ 的某个真子集对等，则$X~Y$
-
 
 
 
@@ -166,15 +216,6 @@ $because C backslash B$
 
 关于集合大小的讨论，看老师视频
 
-引入基数是为了在无限的情况下两个集合比大小
-在集合中的元素有限的情况下，两个集合 A 与 B 的关系，我们总是认为
-$A > B$
-$A = B$
-$A < B$
-这三件事情是一定发生的。那是当然了，毕竟数量可以直接数出来
-但是到了无限的情况下，情况就不一样了
-这三件事情中的某一件并不会一定发生的
-
 
 
 
@@ -182,6 +223,10 @@ $A < B$
 
 定理1.10 的证明，我并不满意,这只能说明，他这种排法不行，没能证明其他的排法不行
 1.12 的证明我不是很能理解，先记下来吧
+
+
+p19 例10 的证明里面用到了有理数的稠密性
+
 
 
 
