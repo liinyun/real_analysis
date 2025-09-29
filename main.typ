@@ -151,29 +151,26 @@ $overline(overline(X)) >= overline(overline(Y))$\
 这两件事情同时发生了，那么说明 \
 $overline(overline(X)) = overline(overline(Y))$ \
 
-在证明 Cantor-Bernstein定理之前，我们需要证明
-引理1.4
-p15
-引理1.4 若有
-可以直接分解,不使用 Cantor-Bernstein 来证明
-老师的方法就是交替链，但是我个人认为老师说的不好。没说明白为什么总是能够找到这个映射。这应该是需要用到不动点来说明的。或者用夏的教材里面的方法
-
-我现在用不动点先证明一遍
-因为题目是存在，所以我们的目标就是找到这么一个函数。
-这个题目条件满足Knaster–Tarski 定理，所以可以找到那么一个函数，使得 \
-$f(S) = X \\ g(Y \\ f(S))$
-
-
 现在证明定理1.5
-老师的证明方法和书本的方案不同。我这里说一下老师的证明方案。
-令\
+老师的证明方法和书本的方案不同。我这里说一下老师的证明方案。\
+老师的证明方法和郑维行的是一样的，他们的这个方法和夏道行的方法其实是同一个意思，
+只是用的变量名字和画的图不同罢了\
+程其襄和夏道行的是一样的。徐森林的第二种证法也是这个。\
+徐森林的第一个其实就是我们现在这个周民强的方法，直接用了Banach 的结论\
+我这里专门把这个证明重新写一遍，是因为我当时其实是有一个疑惑的。而解开这个疑惑的就是我下面这句:\
+这个东西的证明最重要的是能够合理应用这两个对等。\
+先把变量初始化一下 #emoji.face.lick \
 $x_0 subset.neq X$ \
-$y_0 subset.neq Y$ \ \
-// #stack(
-//   line(length: 180pt, stroke: 1.5pt),
-//   spacing: 40pt,
-//   line(length: 180pt, stroke: 1.5pt),
-// )
+$y_0 subset.neq Y$ \
+
+由题目给出的条件，我们定义两个双射 \
+// 这个是真丑，距离太远了。只能使用move 强制修改位置。未来应该会添加padding，所以我不做别的修改了
+$x_0 stretch(arrow.l.r, size: #4em)^f Y$\
+$y_0 stretch(arrow.l.r, size: #4em)^g X$\
+
+
+好，下面令\
+$x_1 = X \\ x_0$
 
 #cetz.canvas({
   import cetz.draw: *
@@ -184,20 +181,70 @@ $y_0 subset.neq Y$ \ \
   cetz.decorations.flat-brace((0pt, 0), (60pt, 0), name: "x1", flip: true)
   content("x1.content", $x_1$, name: "x1content")
 
+
   line((0, -80pt), (330pt, -80pt), stroke: (paint: black, thickness: 2pt), name: "Y")
   content((350pt, -80pt), $Y$)
-  cetz.decorations.flat-brace((70pt, -80pt), (330pt, -80pt), name: "y0", flip: true)
+  cetz.decorations.flat-brace((60pt, -80pt), (330pt, -80pt), name: "y0", flip: true)
   content("y0.content", $y_0$)
-  cetz.decorations.flat-brace((70pt, -80pt), (120pt, -80pt), name: "y1")
-  content("y1.content", $y_1$, name: "y1content")
-  line("x1content", "y1content", mark: (end: "straight"), name: "f")
-  content("f", anchor: "south", padding: 2pt, text("f", style: "italic", weight: "bold"))
 
+
+  // y1
+  cetz.decorations.flat-brace((60pt, -80pt), (120pt, -80pt), name: "y1")
+  content("y1.content", $y_1$, name: "y1content")
+  // x1 -> y1
+  line("x1content", "y1content", mark: (end: "straight"), name: "g1")
+  content("g1", anchor: "north-east", text("g", weight: "black"))
+
+
+  // x2
   cetz.decorations.flat-brace((60pt, 0), (120pt, 0), name: "x2", flip: true)
   content("x2.content", $x_2$, name: "x2content")
-  line("y1content", "x2content", mark: (end: "straight"), name: "g")
-  content("g", anchor: "west", padding: 2pt, text("g", weight: "bold", style: "italic"))
+  // y1 -> x2
+  line("y1content", "x2content", mark: (end: "straight"), name: "f1")
+  content("f1", anchor: "west", padding: 2pt, text("f", weight: "bold"))
+
+
+  // y2
+  cetz.decorations.flat-brace((120pt, -80pt), (180pt, -80pt), name: "y2")
+  content("y2.content", $y_2$, name: "y2content")
+  // x2 -> y2
+  line("x2content", "y2content", mark: (end: "straight"), name: "g2")
+  content("g2", anchor: "north-east", text("g", weight: "black"))
 })
+下面的我就不继续画了，等我什么时候成为typst 高手再说吧 \
+我当时的疑惑在于从$y_1 arrow.r.bar x_2$ 这段，因为$y_1$ 这个时候是在$y_0$ 中的。
+诶这个时候就会有小聪明会说了，我们上面不是有定义了一个映射了吗? \
+$y_0 stretch(arrow.l.r, size: #8em)^g X$\
+这不就说明 $y_1$ 可以映射到整个$X$ 上的某个区间了? \
+对于这个看法，我只能说，你是对的!你非常敏锐，这不就说明$x_2$ 不一定会在$x_0$，也可能与$x_1$ 有交集。\
+这就是我专门把这个题目自己写一遍证明的原因了。\
+注意，我们其实是有两个双射，
+我们还有一个\
+$x_0 stretch(arrow.l.r, size: #8em)^f Y$\
+这个双射可以让处于$Y$ 中的$y_1$ 映射到$x_0$ 上\
+我当时的问题就是，为什么不使用 \
+$y_0 stretch(arrow.l.r, size: #8em)^g X$\
+这个映射，这个映射也是成立的吧?为什么不使用这个映射呢? \
+这个映射成立，没有问题\
+就是因为这个映射成立，所以我们其实可以得到将$y_1$ 双射到$X$ 上可以有别的区间，
+不仅仅是现在的这个在$x_0$ 中的区间。
+(当然，我现在只能找到$y_1$通过g 来对应到$x_1$，是一个$x_2$ 以外的区间。其他的我就真不知道怎么找了)\
+但是。使用这个映射，无法得到我们希望得到的东西。所以我们不采用这个映射。\
+仅此而已。
+明明使用$f$ 是没有问题的，而且还可以得到我们想要的结论，为什么不用呢?\
+至于详细证明什么我，我就不再写了，书上都有。
+
+p17 思考题
+1.
+这个是不对的，我想到的是\
+$A_1 = N$\
+$A_2 = {-1,-2,-3,N}$\
+$B_1 = N$\
+$B_2 = {-1,N}$\
+老师给的例子是
+$A_1 ~ A_2 ~ 偶 数$
+$B_1 ~ 奇 数$
+$B_2 ~ 自 然 数$
 
 
 
@@ -221,10 +268,6 @@ $scr(P)$
 5.
 第一个单射直接用x1 x2 让他们对应的y相同，那么g(y) 唯一，所以x1 = x2
 这个满射也很容易证明。在X中找一个点，不在g 的值域上，使得映射不成立就好了
-
-
-1.15
-对等关系
 
 
 
