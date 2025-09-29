@@ -1,5 +1,6 @@
 // this if for Chinese bold font, without which, Chinese character won't bold
 #set text(font: "Source Han Serif SC")
+#import "@preview/cetz:0.4.2"
 我这里内容的顺序是老师上课的顺序，不是书本的顺序。所以页码标记至关重要
 
 直积在书本p11页有讲
@@ -150,6 +151,53 @@ $overline(overline(X)) >= overline(overline(Y))$\
 这两件事情同时发生了，那么说明 \
 $overline(overline(X)) = overline(overline(Y))$ \
 
+在证明 Cantor-Bernstein定理之前，我们需要证明
+引理1.4
+p15
+引理1.4 若有
+可以直接分解,不使用 Cantor-Bernstein 来证明
+老师的方法就是交替链，但是我个人认为老师说的不好。没说明白为什么总是能够找到这个映射。这应该是需要用到不动点来说明的。或者用夏的教材里面的方法
+
+我现在用不动点先证明一遍
+因为题目是存在，所以我们的目标就是找到这么一个函数。
+这个题目条件满足Knaster–Tarski 定理，所以可以找到那么一个函数，使得 \
+$f(S) = X \\ g(Y \\ f(S))$
+
+
+现在证明定理1.5
+老师的证明方法和书本的方案不同。我这里说一下老师的证明方案。
+令\
+$x_0 subset.neq X$ \
+$y_0 subset.neq Y$ \ \
+// #stack(
+//   line(length: 180pt, stroke: 1.5pt),
+//   spacing: 40pt,
+//   line(length: 180pt, stroke: 1.5pt),
+// )
+
+#cetz.canvas({
+  import cetz.draw: *
+  cetz.decorations.flat-brace((60pt, 0), (330pt, 0), name: "x0")
+  content("x0.content", $x_0$)
+  line((0, 0), (330pt, 0), stroke: (paint: black, thickness: 2pt), name: "X")
+  content((350pt, 0), $X$)
+  cetz.decorations.flat-brace((0pt, 0), (60pt, 0), name: "x1", flip: true)
+  content("x1.content", $x_1$, name: "x1content")
+
+  line((0, -80pt), (330pt, -80pt), stroke: (paint: black, thickness: 2pt), name: "Y")
+  content((350pt, -80pt), $Y$)
+  cetz.decorations.flat-brace((70pt, -80pt), (330pt, -80pt), name: "y0", flip: true)
+  content("y0.content", $y_0$)
+  cetz.decorations.flat-brace((70pt, -80pt), (120pt, -80pt), name: "y1")
+  content("y1.content", $y_1$, name: "y1content")
+  line("x1content", "y1content", mark: (end: "straight"), name: "f")
+  content("f", anchor: "south", padding: 2pt, text("f", style: "italic", weight: "bold"))
+
+  cetz.decorations.flat-brace((60pt, 0), (120pt, 0), name: "x2", flip: true)
+  content("x2.content", $x_2$, name: "x2content")
+  line("y1content", "x2content", mark: (end: "straight"), name: "g")
+  content("g", anchor: "west", padding: 2pt, text("g", weight: "bold", style: "italic"))
+})
 
 
 
@@ -186,14 +234,6 @@ only if $C inter A = diameter, C inter B = diameter$
 
 $A ~ B =>? A inter C tilde.op B inter C$
 
-
-p15
-引理1.4 若有
-可以直接分解,不使用 Cantor-Bernstein 来证明
-老师的方法，我等下看视频再自己理解一下，我现在用不动点先证明一遍
-因为题目是存在，所以我们的目标就是找到这么一个函数。
-这个题目条件满足Knaster–Tarski 定理，所以可以找到那么一个函数，使得 \
-$f(S) = X \\ g(Y \\ f(S))$
 
 
 
