@@ -1,5 +1,6 @@
 // this if for Chinese bold font, without which, Chinese character won't bold
 #set text(font: "Source Han Serif SC")
+#let scr(it) = text(features: ("ss01",), box($cal(it)$))
 #import "@preview/cetz:0.4.2"
 我这里内容的顺序是老师上课的顺序，不是书本的顺序。所以页码标记至关重要
 
@@ -235,24 +236,54 @@ $y_0 stretch(arrow.l.r, size: #8em)^g X$\
 至于详细证明什么我，我就不再写了，书上都有。
 
 p17 思考题
-1.
+1.设$A_1 subset A_2, B_1 subset B_2,$若$A_1 tilde.op B_1, A_2 tilde.op B_2$,试问:是否有
+$(A_2 \\ A_1) tilde.op (B_2 \\ B_1)$ ?
 这个是不对的，我想到的是\
 $A_1 = N$\
 $A_2 = {-1,-2,-3,N}$\
 $B_1 = N$\
 $B_2 = {-1,N}$\
-老师给的例子是
-$A_1 ~ A_2 ~ 偶 数$
-$B_1 ~ 奇 数$
-$B_2 ~ 自 然 数$
+老师给的例子是\
+$A_1 ~ A_2 ~ 偶 数$\
+$B_1 ~ 奇 数$\
+$B_2 ~ 自 然 数$\
+
+2.若$(A \\ B) tilde.op (B \\ A)$则$A tilde.op B$对吗？\
+我第一个想到的证明是令\
+$A = (A inter B) union (A \\ B)$\
+$B = (A inter B) union (B \\ A)$\
+但是这么看来，感觉这个好像是对的了。因为这个本来看起来就对，加上我找不到反例\
+这里其实就用到了一个结论\
+现在有三个集合A,B,C，现在A 与B 对等，能否得到这个结论？\
+$A ~ B arrow.double A union C ~ B union C$\
+当然是不能的。我们可以让$A = C = {1,2,3}$，让$B = {4,5,6}$，显然这个有限集的例子就是反例了\
+但是我们可以通过添加条件使得这个对等，当C 与 A,B 都不相交的时候就是对的\
+证明的时候，让A与B对等，然后C与自己对等就好了。\
+//QUES: 但是我的问题在于，他这里证明的是不相交，对等是成立的。但是没有说明为什么不相交可以使对等成立。
+//我不知道我表述清楚了没有。当然也可能是我的高考直觉在恶心我。
+
+现在我们有了这个结论，也是分别对等就可以了。证明结束
+
+//NOTE:这个是老师给的一个让我们思考的问题
+$A ~ B =>? A inter C tilde.op B inter C$\
+
+3. $若 A subset B 且 A tilde.op ( A union C )，试 证 明 B tilde.op (B union C)．$\
+$B union C = B union (C backslash B)$\
+$B = A union (B backslash A)$\
+$A union C = A union (C backslash A)$\
+$therefore B union C = A union (B backslash A) union (C backslash B)$\
+$because B union C = (B backslash A) union A union (C backslash B)$\
+$because C backslash B$
 
 
 
+
+
+$scr(A)$
 
 
 
 1.14 幂集
-#let scr(it) = text(features: ("ss01",), box($cal(it)$))
 $scr(P)$
 
 这个例一有点抽象
@@ -264,18 +295,13 @@ $scr(P)$
 这个S 我直观上知道是对的，这个东西会需要专门说明是对的吗？
 这个证明看懂了.我之只能说值得多看几遍
 
+p14
 思考题：
-5.
+5.设$f: X arrow.r Y, g: Y arrow.r X.$ 若对任意的 $x in X,$必有$g(f(x))=x$,则$f$是单射,$g$是满射 \
 第一个单射直接用x1 x2 让他们对应的y相同，那么g(y) 唯一，所以x1 = x2
 这个满射也很容易证明。在X中找一个点，不在g 的值域上，使得映射不成立就好了
 
 
-
-$A ~ B =>? A union C ~ B union C$
-
-only if $C inter A = diameter, C inter B = diameter$
-
-$A ~ B =>? A inter C tilde.op B inter C$
 
 
 
@@ -283,20 +309,6 @@ $A ~ B =>? A inter C tilde.op B inter C$
 
 
 p17
-3. $若 A subset B 且 A tilde.op ( A union C )，试 证 明 B tilde.op (B union C)．$
-
-$B union C = B union (C backslash B)$
-
-$B = A union (B backslash A)$
-
-$A union C = A union (A backslash C)$
-
-$therefore B union C = A union (B backslash A) union C backslash B$
-
-$because B union C = (B backslash A) union A union C backslash B$
-
-$because C backslash B$
-
 关于集合大小的讨论，看老师视频
 
 
