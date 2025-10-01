@@ -273,7 +273,46 @@ $B = A union (B backslash A)$\
 $A union C = A union (C backslash A)$\
 $therefore B union C = A union (B backslash A) union (C backslash B)$\
 $because B union C = (B backslash A) union A union (C backslash B)$\
-$because C backslash B$
+$because C backslash B union A tilde.op A$ \
+$therefore (B backslash A) union A union (C backslash B) tilde.op (B backslash A) union A tilde.op B$\
+但是，问题的重点就是在于，为什么$A union (C backslash B) tilde.op A$\
+老师没讲。\
+好现在让我献上gemini 的证明
+要证明对等，其实就是能够找到一一映射\
+既然题目给出了两个对等关系，那么\
+$A stretch(arrow.l.r, size: #3em)^"f" B$\
+$A stretch(arrow.l.r, size: #3em)^"g" A union C$\
+要证明$B = A union (B backslash A ) tilde.op (B union C) =
+A union (B backslash A) union (C backslash B)$
+其实就是证明\
+$A union (B backslash A ) tilde.op
+A union (B backslash A) union (C backslash B)$\
+我们可以在B 中找到这两个映射。为什么会想到这么划分区间？
+纯属是想要把g 这个映射用上。 \
+#set math.cases(gap: 1em)
+#show math.cases: math.display
+因为$B = A union (B backslash A)$\
+好，下面这步拆分很关键\
+$B union C = A union C union (B backslash A)$\
+所以很容易想到我们前面定义的两个双射。如果可以让B 中的$B backslash A$
+与$B union C$ 中的 $B backslash A$ 对应，
+B 中的A 与$B union C$ 中的 $A union C$对应的话，我们就可以建立从B
+到$B union C$ 的双射了。\
+这一看，诶。现在难道不就是嘛？前者直接自己映射自己，
+后者直接用g 就可以了。\
+但是这个划分方法是错误的。因为$B backslash A $ 与$A union C $ 是完全存在重叠的部分的。
+重叠部分得同时映射到B中的A与$B backslash A $ 才可以保证一一对应\
+所以这个映射方案是错误的。但是，通过观察，我们其实可以发现。\
+B中$(B union C) backslash (A union C) $ 的部分其实可以映射到$B union C $中的 
+$(B union C) backslash (A union C) $
+而B 中的A 可以继续映射到$B union C$ 中的$A union C$
+不过这下，这两个区间就没有重复的地方了\
+ai小丑的地方是直接说根据他的划分，交集应该为空。实际他根本没办法证明交集为空。
+但是启发了我重新划分区间。这就对了\
+主要按照老师的分法应该需要某个结论。类似 $C_1 subset C_2 subset C_3 ... subset C_n $\
+如果 $A union C_n  tilde A$ 则任意 i < n 有$A union C_i tilde A $ 
+
+
 
 
 
