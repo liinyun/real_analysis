@@ -388,8 +388,14 @@ p20 例子10
 
 $scr(C)$
 必要性质能理解，充分性不能理解。还有，必要和充分的英文是什么?
-
-
+necessary and sufficient condition
+md其实很形象。现在想想，其实中文翻译也很形象。
+我直接举个例子吧。
+A is necessary condition for B 就是说，要想B成立，那么就得先满足A
+所以B是A的子集
+B is sufficient condition for A 就是说，满足B的条件，一定就满足A了
+所以B是A的子集。所以叫sufficient，充分就是这个意思
+如果A 既是B的充分条件也是B的必要条件，那么A是B的子集的同时B也是A的子集。
 
 
 
