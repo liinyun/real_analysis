@@ -997,7 +997,32 @@ limits(E_k)^circle.stroked.tiny (1/m)$
 这个是下水平集
 思考题一是为了说明 $lt$ 可以由可列个 $lt.eq$ 的并构成
 
-思考题2.
+思考题2.跳过
+思考题3. 跳过
+
+定理1.23
+这个我大概能理解
+但是要我自己写一遍，我大概还是写不来
+不能理解为什么$G_i^c$ 是没有内点的
+为什么$overline(G_i) = R^1$ 这我也不能理解
+这个没有内点是通过
+$limits(E)^circle.stroked.tiny = overline(E^c)^c$ 得到的
+因为$overline(G_i^c) = R$
+而$R^c = diameter$
+
+定义1.32
+无处稠密集，要算上导集然后没有内点才是不稠密的
+如果不算上导集，有理数集其实也是没有内点的
+
+例14 这个证明的第一句话，记下来先
+为什么可以$R^n inter overline(B_0) = G_0^c inter overline(B)$ ?
+因为前面已经得到$G_0 inter overline(B_0) = diameter$ 了
+既然 $G_0 inter overline(B_0) = diameter$ 那么
+$G_0^c inter overline(B_0) eq.not diameter$
+其实，由 $G_0 inter overline(B_0) = diameter$ 已经可以得到
+$overline(B_0) subset G_0^c$ 了。因为和$G_0$ 都没有交集了呀，那只能是补集的子集了
+最后那个是分配率
+
 
 
 
