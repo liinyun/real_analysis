@@ -978,6 +978,14 @@ md这个定义1.28 为什么直接推知了
 $limits(union.big)_(k=1)^infinity {x in G: abs(f(t) - y_0) < 1/m }$
 这里$y_0$ 是极限值
 现在看第4个
+讲的就是特征函数和函数列极限的关系
+函数列极限存在的条件是
+$limits(inter.big)_(m=1)^infinity
+limits(union.big)_(k=1)^infinity
+limits(inter.big)_(i=1)^infinity
+{x : f_k (x) - f_(k+i) (x) < 1/m }$
+但是我不知道从什么角度找到这东西和特征函数的关系
+我看了他的证明，还是没有理解
 
 
 
