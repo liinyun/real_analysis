@@ -1189,7 +1189,8 @@ $limits(F_k)^circle.small (epsilon) subset limits(E_k)^circle.small (epsilon)$ ?
 这里要求特征函数在R上连续，其实是要求不能有边界点
 因为如果有边界点，说明这个边界点边上有不属于E的点，会出现间断点
 而，即开又闭可以保证不会出现这个间断点
-
+因为这个是特征函数，这个函数如果出现了补集的点，就会直接间断
+这个是和初等函数不同的地方
 
 这题其实还有另一条思路，因为连续函数的定义是开集的原像集是开集，
 闭集的原像集也是闭集
@@ -1226,6 +1227,21 @@ $limits(F)^circle.small subset limits(inter.big)_(k=1)^infinity G_k$
 
 所以$limits(F)^circle.small subset G_0$
 所以$overline(G_0 inter F) = F$
+
+思考题6.
+我第一个想法是假设不是稠密的
+这样$E = limits(union.big)_(k=1)^infinity F_k^circle.small$
+这样唯一要处理的就是孤立点
+只要证明孤立点是不存在的就行了
+令$F = limits(union.big)_(k=1)^infinity F_k$
+则孤立点就是$G = F - E'$
+如果存在G,那么就一定可以找到一个$x_0$ 和$delta$
+使得$x_0$ 的$delta$领域里面的点都不属于F
+但是由$R^n = F$ 得，所有点都应该在F上
+所以$E' = F = overline(E)$
+
+
+
 
 
 
